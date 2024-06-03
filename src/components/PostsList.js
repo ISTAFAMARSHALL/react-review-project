@@ -8,6 +8,7 @@ function PostsList () {
 
     const [ enteredBody, setEnteredBody ] = useState('');
     const [ enteredName, setEnteredName ] = useState('');
+    const [ modalIsVisible , setModalIsVisible ] = useState(true);
 
 
     function bodyChangeHandler (event) {
@@ -18,13 +19,17 @@ function PostsList () {
         setEnteredName(event.target.value)
     }
 
+    function modalVisibilityHandler () {
+        setModalIsVisible(false)
+    }
+
     return (
 
         <>
 
-            <Modal>
+            {modalIsVisible && (<Modal onclose={modalVisibilityHandler} >
                 <NewPost onBodyChange={bodyChangeHandler} onNameChange={nameChangeHandler}/>
-            </Modal>
+            </Modal>)}
 
             <ul className={classes.posts}>
 
