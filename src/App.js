@@ -9,20 +9,31 @@ import MainHeader from './components/MainHeader'
 function App() {
 
   const [ modalIsVisible , setModalIsVisible ] = useState(true);
-  
+
+  function showModalHandler () {
+    setModalIsVisible(true)
+}
+  function hideModalHandler () {
+    setModalIsVisible(false)
+  }
+
   return (
-    <div className="App">
       
-      {/* <Posts name="Khiry" body="Hello I am Khiry!"/>
-      <Posts name="Quran" body="Hello I am Quran!"/>
-      <Posts name="Jackie" body="Hello I am Jackie!"/>
-      <Posts /> */}
+      <>
 
-      <MainHeader onCreatePost={} />
+        <MainHeader onCreatePost={showModalHandler} />
 
-      <PostsList/>
+        <main>
+          
+          <PostsList 
+            isPosting={modalIsVisible} 
+            onStopingPost={hideModalHandler} 
+          />
 
-    </div>
+        </main>
+      
+      </>
+
   );
 }
 

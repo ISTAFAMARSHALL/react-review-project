@@ -4,11 +4,11 @@ import classes from './PostsList.module.css'
 import NewPost from './NewPost'
 import Modal from './Modal'
 
-function PostsList () {
+function PostsList (props) {
 
     const [ enteredBody, setEnteredBody ] = useState('');
     const [ enteredName, setEnteredName ] = useState('');
-    const [ modalIsVisible , setModalIsVisible ] = useState(true);
+    
 
 
     function bodyChangeHandler (event) {
@@ -19,17 +19,15 @@ function PostsList () {
         setEnteredName(event.target.value)
     }
 
-    function modalVisibilityHandler () {
-        setModalIsVisible(false)
-    }
+
 
     return (
 
         <>
 
-            {modalIsVisible && (<Modal onclose={modalVisibilityHandler} >
+            {props.isPosting && (<Modal onclose={props.onStopingPost} >
                 <NewPost onBodyChange={bodyChangeHandler} onNameChange={nameChangeHandler}/>
-            </Modal>)}
+            </Modal>) }
 
             <ul className={classes.posts}>
 
