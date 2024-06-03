@@ -1,9 +1,12 @@
 import './App.css';
-import Posts from './components/Posts';
 import PostsList from './components/PostsList'
 
 
+
 function App() {
+
+  
+  
   return (
     <div className="App">
       
@@ -11,6 +14,8 @@ function App() {
       <Posts name="Quran" body="Hello I am Quran!"/>
       <Posts name="Jackie" body="Hello I am Jackie!"/>
       <Posts /> */}
+
+      
 
       <PostsList/>
 
