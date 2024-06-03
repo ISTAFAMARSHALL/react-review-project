@@ -20,13 +20,12 @@ function PostsList (props) {
     }
 
 
-
     return (
 
         <>
 
             {props.isPosting && (<Modal onclose={props.onStopingPost} >
-                <NewPost onBodyChange={bodyChangeHandler} onNameChange={nameChangeHandler}/>
+                <NewPost onBodyChange={bodyChangeHandler} onNameChange={nameChangeHandler} onCancel={props.onStopingPost} />
             </Modal>) }
 
             <ul className={classes.posts}>
