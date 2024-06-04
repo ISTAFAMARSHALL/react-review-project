@@ -23,6 +23,7 @@ function NewPost (props) {
             name: enteredName
         };
         
+        props.onAddPost(postData)
         props.onCancel()
     }
 
