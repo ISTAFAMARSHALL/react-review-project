@@ -1,8 +1,7 @@
 import { useState , useEffect } from 'react'
 import Posts from './Posts'
 import classes from './PostsList.module.css'
-import NewPost from '../routes/NewPost'
-import Modal from './Modal'
+
 
 function PostsList (props) {
 
@@ -41,10 +40,6 @@ function PostsList (props) {
     return (
 
         <>
-
-            {props.isPosting && (<Modal onclose={props.onStopingPost} >
-                <NewPost onCancel={props.onStopingPost} onAddPost={addPostHandler} />
-            </Modal>) }
 
             <ul className={classes.posts}>
                 

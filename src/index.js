@@ -8,12 +8,22 @@ import reportWebVitals from './reportWebVitals';
 import { RouterProvider , createBrowserRouter } from 'react-router-dom'
 
 const router = createBrowserRouter([
-  {path:'/', element: <RootLayout/> ,
-children :[
-    {path: '/', element: <App />},
-    {path: 'create-post', element: <NewPost/>}
-] },
-
+  { 
+    path:'/', 
+    element: <RootLayout/> ,
+    children :[
+      {
+        path: '/', 
+        element: <App />,
+        children :[
+          {
+            path: 'create-post', 
+            element: <NewPost/>
+          },
+        ]
+      },
+    ]
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
