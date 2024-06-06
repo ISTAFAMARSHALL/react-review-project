@@ -7,19 +7,6 @@ function PostsList (props) {
 
     const posts = useLoaderData();
 
-    function addPostHandler(postData) {
-
-        fetch('http://localhost:8080/posts', {
-            method: 'POST',
-            body: JSON.stringify(postData),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-
-        setPosts((existingPost) => [postData, ...existingPost])
-    }
-
     let displayPosts = posts.map((e) => (
         <Posts key={e.id} name={e.name} body={e.body} />
     ))
