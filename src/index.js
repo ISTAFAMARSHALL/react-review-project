@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './routes/Post';
 import NewPost from './routes/NewPost';
 import RootLayout from './routes/RootLayout';
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider , createBrowserRouter } from 'react-router-dom'
+import App, { loader as postsLoader } from './routes/Post';
 
 const router = createBrowserRouter([
   { 
@@ -15,9 +15,10 @@ const router = createBrowserRouter([
       {
         path: '/', 
         element: <App />,
+        loader: postsLoader,
         children :[
           {
-            path: 'create-post', 
+            path: '/create-post', 
             element: <NewPost/>
           },
         ]
